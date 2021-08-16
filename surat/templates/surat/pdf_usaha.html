@@ -1,0 +1,192 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>PDF</title>
+    <style>
+        #atas {}
+
+        #kotak {
+            margin-left: 50px;
+            margin-right: 50px;
+
+        }
+
+        #pertama {
+            margin-left: 50px;
+            margin-right: 50px;
+            padding-left: 20px;
+
+        }
+
+        #ya {
+            margin-right: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background-color: #cdcdcd" align="center">
+        <div style="background-color: #FFF; width: 900px">
+            <table>
+                <tr>
+                    <td><img src="{%static 'public/logo.png'%}" width="100px" align="left"></td>
+                    <td width="40px"></td>
+                    <td size="6">
+
+                        <center>
+                            <font size="5">PEMERINTAH KABUPATEN PROBOLINGGO <br>
+                                KECAMATAN PAITON</font>
+                            <font size="5"><br><strong> KEPALA DESA SUMBERREJO</strong></font><br>
+
+                            <font size="5">JL. Joharan No.019 Kode Pos 67291 Telp. 081336880080</font>
+                            <br>
+                            <font size="5">PROBOLINGGO</b></font><br>
+
+
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            <hr style="border-style: double; " size="3px">
+            <center>
+                <table>
+                    <tr>
+                        <td align="center">
+                            <u>
+                                <font size="5"><b>SURAT KETERANGAN USAHA </b>
+                                </font>
+                            </u> <br>
+
+                            <font size="4">Nomor : 471 / {{buat_surat.NO_SURAT}} / 426.412.019 / I / 2021</font>
+
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br>
+            </table>
+
+            <table border="0" style="text-indent: 60px; font-size: 22px;" id="kotak" align="justify" width="100%">
+
+                <tr>
+                    <p style="text-indent: 45px;font-size: 25px;" align="justify">
+                        <font size="5">Yang bertandatangan di bawah ini :</font><br>
+
+                    <p style="text-indent: 60px;" id="kotak" align="justify">
+                        <font size="5">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : MUHAMMAD HARIS
+                        </font>
+                    </p>
+                    <p style="text-indent: 60px;" id="kotak" align="justify">
+                        <font size="5">Jabatan
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            : KEPALA DESA</font>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <p style="text-indent: 45px;font-size: 25px;" align="justify">
+                            <font size="5">dengan ini menerangkan bahwa : </font><br>
+                        </p>
+                        <table border="0" style="text-indent: 60px; font-size: 22px;" id="kotak" align="justify">
+                            <tr>
+                                <td style="width: 70px">Nama </td>
+                                <td>:</td>
+                                <td>{{buat_surat.NAMA_LENGKAP}}</td>
+                            </tr>
+                            <tr>
+                                <td>NIK </td>
+                                <td>:</td>
+                                <td>{{buat_surat.NIK}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px">Tempat/Tgl </td>
+                                <td>:</td>
+                                <td>{{buat_surat.TMPT_LAHIR}},&nbsp;{{buat_surat.TGL_LHR}}</td>
+                            </tr>
+
+
+                            <tr>
+                                <td style="width: 170px">JK </td>
+                                <td>:</td>
+                                <td>{{buat_surat.JENIS_KELAMIN}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 170px">Agama </td>
+                                <td>:</td>
+                                <td>{{buat_surat.AGAMA}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 170px">Status </td>
+                                <td style="width: 20px">:</td>
+                                <td>{{buat_surat.STATUS_KAWIN}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 170px">Pekerjaan </td>
+                                <td>:</td>
+                                <td>{{buat_surat.JENIS_PEKERJAAN}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 170px">Alamat </td>
+                                <td>:</td>
+                                <td>{{buat_surat.ALAMAT}}, RT.0{{buat_surat.NO_RT}}/RW.0{{buat_surat.NO_RW}}
+                                    Desa {{buat_surat.NM_KEL}} Kecamatan {{buat_surat.NM_KEC}} Kabupaten PROBOLINGGO
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <p style="text-indent: 45px; font-size: 22px;" align="justify">
+                            <font size="5">Nama tersebut di atas benar-benar warga Desa Sumberrejo Kecamatan Paiton Kabupaten
+                                Probolinggo yang memiliki Usaha  {{buat_surat.KETERANGAN}}  yang sampai saat ini masih berjalan.
+                            </font>
+                        </p>
+
+                        <p style="text-indent: 45px; font-size: 22px;" align="justify">
+                            <font size="5">Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat
+                                dipergunakan sebagaimana mestinya.
+                            </font> <br>
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+            </table>
+            <br>
+            <div align="right">
+                <table style="font-size: 24px">
+                    <tr align="center">
+                        <td>Sumberrejo,{{buat_surat.TANGGAL}}</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Kepala Desa Sumberrejo  </td><br>
+                    </tr>
+                    <tr align="center">
+                        <td><img src="{%static 'public/logo.png'%}" width="100px"></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><strong><u>MUHAMMAD HARIS</u></strong>
+                            <br>NIP. 19631218 199602 1 001
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+        <script type="text/javascript">print()</script>
+</body>
+
+</html>

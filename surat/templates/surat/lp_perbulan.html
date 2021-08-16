@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LAPORAN</title>
+    
+</head>
+
+<body>
+    <div style="background-color: #cdcdcd" align="center">
+        <div style="width: 1450px; background-color: #FFF">
+            <table width="100%">
+                <tr>
+                    <td><img src="/static/logo.png" style="width: 70px"></td>
+                    <td align="center" style="width: 1800px">
+                        <table width="100%">
+                            <tr>
+                                <td align="center"> <b>PEMERINTAH KABUPATEN PROBOLINGGO<br>
+                                        KECAMATAN PAITON<br>
+                                        KEPALA DESA SUMBERREJO<br>
+                                        JL. Joharan No.019 Kode Pos 67291 Telp. 081336880080<br>
+                                        PROBOLINGGO<br>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+
+                </tr>
+            </table>
+            <hr style="border: double;">
+            <tr>
+                <td align="center"><b>
+                    <td>LAPORAN PEMBUATAN SURAT </td>
+                        
+                </td>
+            </tr>
+            <br>
+            <br>
+            <table border="">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>NO_SURAT</th>
+                        <th>TANGGAL</th>
+                        <th>JENIS_SURAT</th>
+                        <th>NIK</th>
+                        <th>NAMA_LENGKAP</th>
+                        <th>JENIS_KELAMIN</th>
+                        <th>JENIS_PEKERJAAN</th>
+                        <th>ALAMAT</th>
+                        <th>NO_RT</th>
+                        <th>NO_RW</th>
+                        <th>KETERANGAN</th>
+                        <th>CATATAN</th>
+                    </tr>
+                </thead>
+                <tbody align="margin-center">
+                    {% for datasurat in tampil_data %}
+                    <tr>
+                        <td align="center">{{forloop.counter}}</td>
+                        <td>{{datasurat.NO_SURAT}}</td>
+                        <td>{{datasurat.TANGGAL}}</td>
+                        <td>{{datasurat.JENIS_SURAT}}</td>
+                        <td>{{datasurat.NIK}}</td>
+                        <td>{{datasurat.NAMA_LENGKAP}}</td>
+                        <td>{{datasurat.JENIS_KELAMIN}}</td>
+                        <td>{{datasurat.JENIS_PEKERJAAN}}</td>
+                        <td>{{datasurat.ALAMAT}}</td>
+                        <td>{{datasurat.NO_RT}}</td>
+                        <td>{{datasurat.NO_RW}}</td>                      
+                        <td>{{datasurat.KETERANGAN}}</td>
+                        <td>{{datasurat.CATATAN}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="17" align="center"> Data Masih Kosong</td>
+                    </tr>
+
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table><br><br><br>
+            <div align="right" >
+                <table>
+                    <tr>
+                        <td>KEPALA DESA SUMBERRJO<br>
+                             <br><br><br><br>
+
+                            <u>MUHAMMAD HARIS</u><br>
+                            NIP: 19631218 199602 1 001
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">print();</script>
+</body>
+
+</html>

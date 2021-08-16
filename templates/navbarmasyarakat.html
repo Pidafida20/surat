@@ -1,0 +1,31 @@
+{% load static%}
+<!-- START SIDEBAR-->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <br>
+            <!-- <div class="admin-block d-flex">
+                <div> -->
+                    <!-- <img src="{% static 'public/assets/img/logo-dark.png'%}" width="75px" /> -->
+                <!-- </div>
+                <div class="admin-info" align="center">
+                    <div class="font-strong">ADMIN</div><small>Desa Sumberrejo</small>
+                </div>
+            </div> -->
+            <br>
+            <ul class="side-menu metismenu">
+                <li>
+                    <a class="active" href="{% url 'berandamasyarakat' %}"><i class="sidebar-item-icon fa fa-dashboard"></i>
+                        <span class="nav-label">Beranda</span>
+                    </a>
+                </li>
+               
+                <li>
+                    <a class="active" href="{% url 'inputsuratmasyarakat' %}"><i class="sidebar-item-icon  fa fa-envelope"></i>
+                        <span class="nav-label">Layanan Surat</span>
+                    </a>
+                </li>
+              
+        </div>
+    </div>
+</div>

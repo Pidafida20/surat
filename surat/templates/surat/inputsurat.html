@@ -1,0 +1,422 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="card-block">
+                        <p><strong>
+                                <h3>Input Layanan Surat</h3>
+                            </strong></p>
+                        <br>
+                        <form class="form-horizontal" method="POST" id="Surat">
+                            <table class="table table-striped table bordered table-hover">
+                                <h5>Nomor Surat</h5>
+                                <span>
+                                    <input type="text" name="NO_SURAT" id="NO_SURAT" value="{{nosurat}}" size="10">
+                                </span>
+                            </table>
+                            
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">JENIS_SURAT</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="JENIS SURAT" class="form-control" id="JENIS_SURAT"
+                                        name="JENIS_SURAT">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>Surat Keterangan Usaha</option>
+                                        <option>Surat Keterangan Tidak Mampu</option>
+                                        <option>Surat Keterangan Terdampak Covid</option>
+                                        <option>Surat Keterangan Penghasilan</option>
+                                        <option>Surat Keterangan Kematian</option>
+                                        <option>Surat Keterangan Kelakuan Baik</option>
+                                        <option>Surat Keterangan Kehilangan</option>
+                                        <option>Surat Keterangan Domisili</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">TANGGAL</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="TANGGAL" id="TANGGAL">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">NIK</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="NIK" id="NIK">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">NAMA LENGKAP</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="NAMA_LENGKAP" id="NAMA_LENGKAP">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">STAT_HBKEL</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="STAT_HBKEL" class="form-control" id="STAT_HBKEL"
+                                        name="STAT_HBKEL">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option value="KEPALA-KELUARGA">KEPALA-KELUARGA</option>
+                                        <option value="ISTRI">ISTRI</option>
+                                        <option value="ANAK">ANAK</option>
+                                        <option value="CUCU">CUCU</option>
+                                        <option value="FAMILI-LAIN">FAMILI-LAIN</option>
+                                        <option value="MERTUA">MERTUA</option>
+                                        <option value="ORANG-TUA">ORANG-TUA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">JENIS KELAMIN</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="Jenis Kelamin" class="form-control" id="JENIS_KELAMIN"
+                                        name="jenis_kelamin">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>LAKI-LAKI</option>
+                                        <option>PEREMPUAN</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">TEMPAT LAHIR</h6>
+                                <div class="col-sm-3">
+                                    <select placeholder="TMPT_LAHIR" class="form-control" id="TMPT_LAHIR"
+                                        name="TMPT_LAHIR">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>BALI</option>
+                                        <option>BANYUWANGI</option>
+                                        <option>BATANG</option>
+                                        <option>BLITAR</option>
+                                        <option>BONDOWOSO</option>
+                                        <option>BREBES</option>
+                                        <option>CIREBON</option>
+                                        <option>DAWAN KALER</option>
+                                        <option>DENPASAR</option>
+                                        <option>GORONTALO</option>
+                                        <option>GRESIK</option>
+                                        <option>JAKARTA</option>
+                                        <option>JEMBER</option>
+                                        <option>JEPARA</option>
+                                        <option>JOMBANG</option>
+                                        <option>KARANG ASEM</option>
+                                        <option>KARAWANG</option>
+                                        <option>KEBUMIN</option>
+                                        <option>KEDIRI</option>
+                                        <option>KUTAI</option>
+                                        <option>LAMONGAN</option>
+                                        <option>LUMAJANG</option>
+                                        <option>MADIUN</option>
+                                        <option>MALANG</option>
+                                        <option>MOJOKERTO</option>
+                                        <option>NGANJUK</option>
+                                        <option>NGAWI</option>
+                                        <option>PAMEKASAN</option>
+                                        <option>PASER</option>
+                                        <option>PASURUAN</option>
+                                        <option>PEMALANG</option>
+                                        <option>PROBOLINGGO</option>
+                                        <option>SEMARANG</option>
+                                        <option>SEMPULANG</option>
+                                        <option>SIDOARJO</option>
+                                        <option>SINGARAJA</option>
+                                        <option>SITUBONDO</option>
+                                        <option>SUBANG</option>
+                                        <option>SUKABUMI</option>
+                                        <option>SUMENEP</option>
+                                        <option>SURABAYA</option>
+                                        <option>TUBAN</option>
+                                        <option>TULUNG AGUNG</option>
+                                    </select>
+
+                                </div>
+                                <h6 class="col-sm-1 col-form-label">TANGGAL LAHIR</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="TGL_LHR" id="TGL_LHR">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">STATUS KAWIN</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="Status Perkawinan" class="form-control" id="STATUS_KAWIN"
+                                        name="STATUS_KAWIN">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>belum kawin</option>
+                                        <option>cerai hidup</option>
+                                        <option>cerai mati</option>
+                                        <option>kawin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h6 class="col-sm-2 col-form-label">NAMA IBU</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" name="NAMA_IBU" id="NAMA_IBU">
+                                    </div>
+                                </div>
+                                <h6 class="col-sm-1 col-form-label">NAMA AYAH</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="NAMA_AYAH" id="NAMA_AYAH">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">AGAMA</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="AGAMA" id="AGAMA">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">JENIS PEKERJAAN</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="JENIS_PEKERJAAN" class="form-control" id="JENIS_PEKERJAAN"
+                                        name="JENIS_PEKERJAAN">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>APOTEKER</option>
+                                        <option>BELUM/TIDAK BEKERJA</option>
+                                        <option>BIDAN</option>
+                                        <option>BURUH HARIAN LEPAS</option>
+                                        <option>BURUH PETERNAKAN</option>
+                                        <option>BURUH TANI/PERKEBUNAN</option>
+                                        <option>GURU</option>
+                                        <option>DOSEN</option>
+                                        <option>KARYAWAN BUMN</option>
+                                        <option>KARYAWAN HONORER</option>
+                                        <option>KARYAWAN SWASTA</option>
+                                        <option>KEPOLISIAN RI</option>
+                                        <option>KONSTRUKSI</option>
+                                        <option>MEKANIK</option>
+                                        <option>MENGURUS RUMAH TANGGA</option>
+                                        <option>NELAYAN/PERIKANAN</option>
+                                        <option>PEDAGANG</option>
+                                        <option>PEGAWAI NEGERI SIPIL</option>
+                                        <option>PELAJAR/MAHASISWA</option>
+                                        <option>PEMBANTU RUMAH TANGGA</option>
+                                        <option>PENSIUNAN</option>
+                                        <option>PERANGKAT DESA</option>
+                                        <option>PERAWAT</option>
+                                        <option>PERDAGANGAN</option>
+                                        <option>PETANI/PEKEBUN</option>
+                                        <option>TRANSPORTASI</option>
+                                        <option>TUKANG BATU</option>
+                                        <option>TUKANG JAHIT</option>
+                                        <option>TUKANG KAYU</option>
+                                        <option>TUKANG LAS/PANDAI BESI </option>
+                                        <option>USTADZAH/MUBALIGH</option>
+                                        <option>WIRASWASTA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">ALAMAT</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="ALAMAT" class="form-control" id="ALAMAT" name="ALAMAT">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>DUSUN KEJAWAN</option>
+                                        <option>DUSUN MATIKAN</option>
+                                        <option>DUSUN KRAJAN</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h6 class="col-sm-2 col-form-label">NO RT</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" name="NO_RT" id="NO_RT">
+                                    </div>
+                                </div>
+                                <h6 class="col-sm-1 col-form-label">NO RW</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="NO_RW" id="NO_RW">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h6 class="col-sm-2 col-form-label">NM KEL</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" name="NM_KEL" id="NM_KEL">
+                                    </div>
+                                </div>
+                                <h6 class="col-sm-1 col-form-label">NM_KEC</h6>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="NM_KEC" id="NM_KEC">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">KETERANGAN</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control"  type="text" name="KETERANGAN"
+                                        id="KETERANGAN">
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">CATATAN</h6>
+                                <div class="col-sm-9">
+                                    <textarea rows="5" cols="5" class="form-control" type="text" name="CATATAN" id="CATATAN"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">PILIH BULAN</h6>
+                                <div class="col-sm-9">
+                                <input type="month"  name="BULAN" value="" id="BULAN" class="form-control">
+                            </div>
+
+                    </div>
+
+
+
+                    <br>
+                    <div align="left" class="form-group row">
+                        <div class="col-sm-9 ml-sm-auto">
+                            <input type="button" id="simpan" class="btn btn-primary" value="Simpan" />
+                            <!-- <a class="btn btn-danger" href="{% url 'layanansurat'%}"> Batal</a> -->
+                            <input type="button" id="bersih" class="btn btn-warning" value="Bersihkan" />
+                            <!-- <a class="btn btn-danger" href="{% url 'layanansurat'%}"> Batal</a> -->
+
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            $('#NIK').keypress(function (a) {
+                var NIK = $("#NIK").val();
+                var csr = $("input[name=csrfmiddlewaretoken]").val();
+                if (a.which == 13) {
+                    if (NIK == "") {
+                        alert('NIK belum diisi, silakan isi dahulu')
+                    } else {
+                        $.ajax({
+                            type: "POST",
+                            url: "{% url 'ambilnik' %}",
+                            dataType: "JSON",
+                            cache: false,
+                            data: { NIK: NIK, csrfmiddlewaretoken: csr },
+
+                            success: function (data) {
+
+                                if (data.status == 0) {
+                                    alert("NIK " + NIK + " tidak ditemukan ATAU KOSONG");
+                                    $('#NIK').focus();
+                                } else {
+
+                                    $.each(data, function (nama, stat_hbkel, jk, tempat_lahir, tgllhr, status_kawin, ibu, ayah, agama, jenis_pekerjaan, alamat, rt, rw, kel, kec) {
+                                        $('#NAMA_LENGKAP').val(data.nama);
+                                        $('#STAT_HBKEL').val(data.stat_hbkel);
+                                        $('#JENIS_KELAMIN').val(data.jk);
+                                        $('#TMPT_LAHIR').val(data.tempat_lahir);
+                                        $('#TGL_LHR').val(data.tgllhr);
+                                        $('#STATUS_KAWIN').val(data.status_kawin);
+                                        $('#NAMA_IBU').val(data.ibu);
+                                        $('#NAMA_AYAH').val(data.ayah);
+                                        $('#AGAMA').val(data.agama);
+                                        $('#JENIS_PEKERJAAN').val(data.jenis_pekerjaan);
+                                        $('#ALAMAT').val(data.alamat);
+                                        $('#NO_RT').val(data.rt);
+                                        $('#NO_RW').val(data.rw);
+                                        $('#NM_KEL').val(data.kel);
+                                        $('#NM_KEC').val(data.kec);
+
+
+                                    });
+
+
+                                }
+
+
+                            }
+                        });
+
+                    }
+                }
+            });
+
+            $("#simpan").click(function (e) {
+                e.preventDefault();
+                var NO_SURAT = $("#NO_SURAT").val();
+                var JENIS_SURAT = $("#JENIS_SURAT").val();
+                var TANGGAL = $("#TANGGAL").val();
+                var NIK = $("#NIK").val();
+                var NAMA_LENGKAP = $("#NAMA_LENGKAP").val();
+                var STAT_HBKEL = $("#STAT_HBKEL").val();
+                var JENIS_KELAMIN = $("#JENIS_KELAMIN").val();
+                var TMPT_LAHIR = $("#TMPT_LAHIR").val();
+                var TGL_LHR = $("#TGL_LHR").val();
+                var STATUS_KAWIN = $("#STATUS_KAWIN").val();
+                var NAMA_IBU = $("#NAMA_IBU").val();
+                var NAMA_AYAH = $("#NAMA_AYAH").val();
+                var AGAMA = $("#AGAMA").val();
+                var JENIS_PEKERJAAN = $("#JENIS_PEKERJAAN").val();
+                var ALAMAT = $("#ALAMAT").val();
+                var NO_RT = $("#NO_RT").val();
+                var NO_RW = $("#NO_RW").val();
+                var NM_KEL = $("#NM_KEL").val();
+                var NM_KEC = $("#NM_KEC").val();
+                var KETERANGAN = $("#KETERANGAN").val();
+                var CATATAN = $("#CATATAN").val();
+                var BULAN = $("#BULAN").val();
+                var csr = $("input[name=csrfmiddlewaretoken]").val();
+
+                if (TANGGAL == "") {
+                    alert("TANGGAL Masih kosong!!")
+                    $('#TANGGAL').focus();
+                } else {
+                    mydata = { NO_SURAT:NO_SURAT, JENIS_SURAT: JENIS_SURAT,TANGGAL:TANGGAL, NIK: NIK, NAMA_LENGKAP: NAMA_LENGKAP, STAT_HBKEL: STAT_HBKEL, JENIS_KELAMIN: JENIS_KELAMIN, TMPT_LAHIR: TMPT_LAHIR, TGL_LHR: TGL_LHR, STATUS_KAWIN: STATUS_KAWIN, NAMA_IBU: NAMA_IBU, NAMA_AYAH: NAMA_AYAH, AGAMA: AGAMA, JENIS_PEKERJAAN: JENIS_PEKERJAAN, ALAMAT: ALAMAT, NO_RT: NO_RT, NO_RW: NO_RW, NM_KEL: NM_KEL, NM_KEC: NM_KEC, KETERANGAN: KETERANGAN,CATATAN:CATATAN,BULAN:BULAN, csrfmiddlewaretoken: csr };
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url 'inputsurat' %}",
+                        data: mydata,
+                        success: function (data) {
+                            alert("data surat tersimpan")
+                        }
+                    });
+                }
+
+
+            });
+            $('#bersih').click(function () {
+                $('#Surat')[0].reset()
+            });
+
+
+        </script>
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock content %}

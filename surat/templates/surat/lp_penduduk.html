@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title background-color: #FFF>LAPORAN </title>
+
+</head>
+
+<body>
+    <div style="background-color: #cdcdcd" align="center">
+        <div style="width: 2000px; background-color: #FFF">
+            <table width="100%">
+                <tr>
+                    <td><img src="/static/logo.png" style="width: 70px"></td>
+                    <td align="center" style="width: 2000px">
+                        <table width="100%">
+                            <tr>
+                                <td align="center"> <b>DATA PENDUDUK<br>
+                                        DESA SUMBERREJO<br>
+                                        KECAMATAN PAITON<br>
+                                        JL. Joharan No.019 Kode Pos 67291 Telp. 081336880080<br>
+                                        PROBOLINGGO<br>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+
+                </tr>
+            </table>
+            <hr style="border: double;">
+            <tr>
+                <td align="center"><b>
+                <td>DATA PENDUDUK PER DUSUN </td>
+
+                </td>
+            </tr>
+            <br>
+            <br>
+            <table border="">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>NO_KK</th>
+                        <th>NIK</th>
+                        <th>NAMA_LENGKAP</th>
+                        <th>STAT_HBKEL</th>
+                        <th>JENIS_KELAMIN</th>
+                        <th>TEMPAT_LAHIR</th>
+                        <th>TANGGAL_LAHIR</th>
+                        <th>STATUS_KAWIN</th>
+                        <th>AGAMA</th>
+                        <th>NAMA_IBU</th>
+                        <th>NAMA_AYAH</th>
+                        <th>JENIS_PEKERJAAN</th>
+                        <th>ALAMAT</th>
+                        <th>NO_RT</th>
+                        <th>NO_RW</th>
+                        <th>NM_KEL</th>
+                        <th>NM_KEC</th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody align="margin-center">
+                    {% for datapenduduk in tampil %}
+                    <tr>
+                        <td align="center">{{forloop.counter}}</td>
+
+                        <td>{{datapenduduk.NO_KK}}</td>
+                        <td>{{datapenduduk.NIK}}</td>
+                        <td>{{datapenduduk.NAMA_LENGKAP}}</td>
+                        <td>{{datapenduduk.STAT_HBKEL}}</td>
+                        <td>{{datapenduduk.JENIS_KELAMIN}}</td>
+                        <td>{{datapenduduk.TMPT_LAHIR}}</td>
+                        <td>{{datapenduduk.TGL_LHR}}</td>
+                        <td>{{datapenduduk.STATUS_KAWIN}}</td>
+                        <td>{{datapenduduk.AGAMA}}</td>
+                        <td>{{datapenduduk.NAMA_IBU}}</td>
+                        <td>{{datapenduduk.NAMA_AYAH}}</td>
+                        <td>{{datapenduduk.JENIS_PEKERJAAN}}</td>
+                        <td>{{datapenduduk.ALAMAT}}</td>
+                        <td>{{datapenduduk.NO_RT}}</td>
+                        <td>{{datapenduduk.NO_RW}}</td>
+                        <td>{{datapenduduk.NM_KEL}}</td>
+                        <td>{{datapenduduk.NM_KEC}}</td>
+
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="17" align="center"> Data Masih Kosong</td>
+                    </tr>
+
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table><br><br><br>
+            <div align="right" >
+                <table>
+                    <!-- <tr>
+                        <td>SUMBERREJO, {{datasurat.BULAN}}</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENGETAHUI<br> -->
+                            <td>
+                                KEPALA DESA SUMBERRJO <br><br><br><br>
+
+                                <u>MUHAMMAD HARIS</u><br>
+                                NIP: 19631218 199602 1 001
+                            </td>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">print();</script>
+</body>
+
+</html>

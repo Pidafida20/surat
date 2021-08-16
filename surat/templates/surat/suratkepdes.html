@@ -1,0 +1,131 @@
+{% extends "basekepdes.html" %}
+{% load static %}
+{% block content %}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="card-block">
+                        <p><strong>
+                                <h3>Laporan Pembuatan Surat</h3>
+                                
+                            </strong></p>
+                        <br>
+                        <div align="right">
+                            <form method="get"> {{ filter_list_surat.form }} <button class="btn btn-primary"
+                                    type="submit"> cari</i> </button>
+                                <!-- <i class="fa fa-search"></i> -->
+                            </form>
+                        </div>
+                        
+                        <br>
+                        <div class="card-block">
+                            <div style="overflow-x: scroll; overflow-y: hidden ; width:100%;">
+                                 <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr align="center">
+                                            
+                                            <th>NO</th>
+                                            <th>TANGGAL</th>
+                                            <th>JENIS_SURAT</th>
+                                            <th>NIK</th>
+                                            <th>NAMA_LENGKAP</th>
+                                            <th>STAT_HBKEL</th>
+                                            <th>JENIS_KELAMIN</th>
+                                            <th>TEMPAT_LAHIR</th>
+                                            <th>TANGGAL_LAHIR</th>
+                                            <th>STATUS_KAWIN</th>
+                                            <th>NAMA_IBU</th>
+                                            <th>NAMA_AYAH</th>
+                                            <th>AGAMA</th>
+                                            <th>JENIS_PEKERJAAN</th>
+                                            <th>ALAMAT</th>
+                                            <th>NO_RT</th>
+                                            <th>NO_RW</th>
+                                            <th>NM_KEL</th>
+                                            <th>NM_KEC</th>
+                                            <th>KETERANGAN</th>
+                                            <th>CATATAN</th>
+
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody align="left">
+                                        {% for datasurat in halaman_list_surat.object_list %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>               
+                                            <td>{{datasurat.TANGGAL}}</td>
+                                            <td>{{datasurat.JENIS_SURAT}}</td>
+                                            <td>{{datasurat.NIK}}</td>
+                                            <td>{{datasurat.NAMA_LENGKAP}}</td>
+                                            <td>{{datasurat.STAT_HBKEL}}</td>
+                                            <td>{{datasurat.JENIS_KELAMIN}}</td>
+                                            <td>{{datasurat.TMPT_LAHIR}}</td>
+                                            <td>{{datasurat.TGL_LHR}}</td>
+                                            <td>{{datasurat.STATUS_KAWIN}}</td>
+                                            <td>{{datasurat.NAMA_IBU}}</td>
+                                            <td>{{datasurat.NAMA_AYAH}}</td>
+                                            <td>{{datasurat.AGAMA}}</td>
+                                            <td>{{datasurat.JENIS_PEKERJAAN}}</td>
+                                            <td>{{datasurat.ALAMAT}}</td>
+                                            <td>{{datasurat.NO_RT}}</td>
+                                            <td>{{datasurat.NO_RW}}</td>
+                                            <td>{{datasurat.NM_KEL}}</td>
+                                            <td>{{datasurat.NM_KEC}}</td>                                
+                                            <td>{{datasurat.KETERANGAN}}</td>
+                                            <td>{{datasurat.CATATAN}}</td>
+
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="17" align="center"> Data Masih Kosong</td>
+                                        </tr>
+
+
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {% if not previous %} disabled {% endif %}">
+                                    <a class="page-link" href="{{ previous }}">Previous</a>
+                                </li>
+
+                                {% for n in halaman_list_surat.paginator.page_range %}
+                                {% if halaman_list_surat.number == n %}
+                                <li class="page-item active" aria>
+                                    <span class="page-link">
+                                        {{ n }}
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                </li>
+                                {% elif n > halaman_list_surat.number|add:-3 and n < halaman_list_surat.number|add:3 %}
+                                    <li class="page-item"><a class="page-link" href="?halaman={{ n }}">{{ n}}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <li class="page-item {% if not next %} disabled {% endif %}">
+                                        <a class="page-link" href="{{ next }}">Next</a>
+                                    </li>
+
+                            </ul>
+
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

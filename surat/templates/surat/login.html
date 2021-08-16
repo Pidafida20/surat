@@ -1,0 +1,57 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'public/assets/img/favicon.ico' %}">
+    <title>SELAMAT DATANG DI APLIKASI LAYANAN SURAT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'public/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'public/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'public/assets/css/style.css' %}">
+</head>
+
+<body>
+    <div class="main-wrapper account-wrapper  " >
+        <div class="account-page">
+			<div class="account-center">
+                
+				<div class="account-box bg-info">
+                    <form action="{% url 'login' %}" method="POST" class="form-signin">
+                        {% csrf_token %}
+                        <div align="center">
+                            <blockquote class="blockquote">
+								<p class="mb-0"><strong> Selamat Datang Di Aplikasi Layanan Surat Desa Sumberrejo</strong> </p>
+							</blockquote>
+                        </div>
+                       
+						<div class="account-logo">
+                            <img src="{% static 'public/logo.png' %}" alt="">
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1">Nama Pengguna</label>
+                            <input class="form-control py-2" name="username" type="text"
+                                placeholder="Masukkan Nama Pengguna" />
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1">Kata Sandi</label>
+                            <input class="form-control py-2" name="password" type="password" placeholder="Masukkan Kata Sandi" />
+                        </div>
+                        <br>
+    
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-warning account-btn">Login</button>
+                        </div>
+                    </form>
+                </div>
+			</div>
+        </div>
+    </div>
+    <script src="{% static 'public/assets/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'public/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'public/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'public/assets/js/app.js' %}"></script>
+</body>
+
+

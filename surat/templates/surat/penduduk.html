@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box ">
+                    <div class="card-block">
+                        <p><strong><h3>Data Penduduk</h3></strong></p>
+                        <br>
+                        
+                        <div align="right">
+                            <blockquote><p class="mb-0">Cetak Laporan Berdasarkan Alamat ( Dusun)</p></blockquote>
+                            <form method="get" action="{% url 'lp_penduduk' %}"> {{ filter_list_penduduk.form.ALAMAT }}
+                                 <button class="btn btn-warning" type="submit"><i class="fa fa-print"></i> Cetak</button>
+                        </form>
+                        </div>
+                        <br>
+                        <br>
+                        <div align="right">
+                            <a href="{% url 'tambahpenduduk' %}" type="button" class="btn btn-primary "> 
+                                    Tambah Penduduk</i></a>
+                            <a href="{% url 'upload' %}" type="button" class="btn btn-primary">
+                                    Import</i></a>
+                            <a href="{% url 'export' %}" type="button" class="btn btn-primary">
+                                    Cetak Data Penduduk</i></a>
+                        </div>
+                        
+                        <div >
+                            <h5>NIK</h5> 
+                           <form method="get"> {{ filter_list_penduduk.form.NIK }}
+                                 <button class="btn btn-primary" type="submit"  placeholder="NIK"></i>Cari</button></form>
+                        <h5>Nama</h5> 
+                            <form method="get"> {{ filter_list_penduduk.form.NAMA_LENGKAP }}
+                                 <button class="btn btn-primary" type="submit"></i>Cari</button></form>
+                        </div>
+                        
+                        <br>
+                        
+                        <div class="card-block">
+                            <div style="overflow-x: scroll; overflow-y: hidden ; width:100%;">
+                                 <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>NO_KK</th>
+                                            <th>NIK</th>
+                                            <th>NAMA_LENGKAP</th>
+                                            <th>STAT_HBKEL</th>
+                                            <th>JENIS_KELAMIN</th>
+                                            <th>TEMPAT_LAHIR</th>
+                                            <th>TANGGAL_LAHIR</th>
+                                            <th>STATUS_KAWIN</th>
+                                            <th>NAMA_IBU</th>
+                                            <th>NAMA_AYAH</th>
+                                            <th>AGAMA</th>
+                                            <th>JENIS_PEKERJAAN</th>
+                                            <th>ALAMAT</th>
+                                            <th>NO_RT</th>
+                                            <th>NO_RW</th>
+                                            <th>NM_KEL</th>
+                                            <th>NM_KEC</th>
+                                            <th>KETERANGAN</th>
+                                            <th>Aksi</th>  
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for datapenduduk in halaman_list_penduduk.object_list %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{datapenduduk.NO_KK}}</td>
+                                            <td>{{datapenduduk.NIK}}</td>
+                                            <td>{{datapenduduk.NAMA_LENGKAP}}</td>
+                                            <td>{{datapenduduk.STAT_HBKEL}}</td>
+                                            <td>{{datapenduduk.JENIS_KELAMIN}}</td>
+                                            <td>{{datapenduduk.TMPT_LAHIR}}</td>
+                                            <td>{{datapenduduk.TGL_LHR}}</td>
+                                            <td>{{datapenduduk.STATUS_KAWIN}}</td>
+                                            <td>{{datapenduduk.NAMA_IBU}}</td>
+                                            <td>{{datapenduduk.NAMA_AYAH}}</td>
+                                            <td>{{datapenduduk.AGAMA}}</td>
+                                            <td>{{datapenduduk.JENIS_PEKERJAAN}}</td>
+                                            <td>{{datapenduduk.ALAMAT}}</td>
+                                            <td>{{datapenduduk.NO_RT}}</td>
+                                            <td>{{datapenduduk.NO_RW}}</td>
+                                            <td>{{datapenduduk.NM_KEL}}</td>
+                                            <td>{{datapenduduk.NM_KEC}}</td>
+                                            <td>{{datapenduduk.KETERANGAN}}</td>
+                                            <td>
+                                                <div class="btn-toolbar m-b-10">
+                                                    <div class="btn-group">
+                                                        <a href="{% url 'editpenduduk' datapenduduk.id %}"
+                                                            class="btn btn-success float-right">EDIT</a>
+
+                                                    </div>
+                                                </div>
+
+                                            </td>  
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="17" align="center"> Data Masih Kosong</td>
+                                        </tr>
+
+
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {% if not previous %} disabled {% endif %}">
+                                    <a class="page-link" href="{{ previous }}">previous</a>
+                                </li>
+
+                                {% for n in halaman_list_penduduk.paginator.page_range %}
+                                {% if halaman_list_penduduk.number == n %}
+                                <li class="page-item active" aria>
+                                    <span class="page-link">
+                                        {{ n }}
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                </li>
+                                {% elif n > halaman_list_penduduk.number|add:-3 and n < halaman_list_penduduk.number|add:3 %} 
+                                <li class="page-item"><a class="page-link" href="?halaman={{ n }}">{{ n}}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <li class="page-item {% if not next %} disabled {% endif %}">
+                                        <a class="page-link" href="{{ next }}">Next</a>
+                                    </li>
+
+                            </ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        {% endblock content %}

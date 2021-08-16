@@ -1,0 +1,121 @@
+{% extends "basemasyarakat.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="card-block">
+                        <p><strong>
+                                <h3>Input Layanan Surat</h3>
+                            </strong></p>
+                        <br>
+                        <form class="form-horizontal" method="POST" id="Masyarakat">
+                            {% csrf_token %}
+
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">Nama Lengkap</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="nama_lengkap" id="nama_lengkap">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">NIK</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="nik" id="nik">
+                                    <!-- <div id="result" style="display:none">keypress</div> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">Jenis Surat</h6>
+                                <div class="col-sm-9">
+                                    <select placeholder="Jenis Surat" class="form-control" id="jenis_surat"
+                                        name="jenis_surat">
+                                        <option>---pilih---</option>
+                                        <option></option>
+                                        <option>Surat Keterangan Usaha</option>
+                                        <option>Surat Keterangan Tidak Mampu</option>
+                                        <option>Surat Keterangan Terdampak Covid</option>
+                                        <option>Surat Keterangan Penghasilan</option>
+                                        <option>Surat Keterangan Kematian</option>
+                                        <option>Surat Keterangan Kelakuan Baik</option>
+                                        <option>Surat Keterangan Kehilangan</option>
+                                        <option>Surat Keterangan Domisili</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">KETERANGAN</h6>
+                                <div class="col-sm-9">
+                                    <input class="form-control"  type="text" name="keterangan"
+                                        id="keterangan">
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">CATATAN</h6>
+                                <div class="col-sm-9">
+                                    <textarea rows="5" cols="5" class="form-control" type="text" name="catatan" id="catatan"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 col-form-label">No Telepon</h6>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="text" name="no_telp" id="no_hp">
+                                    </div>
+                            </div>
+                           
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-10 ml-sm-auto">
+                            <button class="btn btn-primary" id="simpansurat" type="submit">Simpan</button>
+                        </div>
+                    </div>
+                    
+
+                </form>
+
+            </div>
+        </div>
+        <div>
+        </div>
+        <script>
+            $('body').on('click', '#simpansurat', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: '/inputsuratmasyarakat/',
+                    data: {
+                        nama_lengkap = $('#nama_lengkap').val(),
+                        nik = $('#nik').val(),
+                        jenis_surat: $('#jenis_surat').val(),
+                        keterangan = $('#keterangan').val(),
+                        catatan = $('#catatan').val(),
+                        no_hp = $('#no_hp').val(),
+
+
+
+
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function () {
+                        alert("yess")
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+</div>
+</div>
+
+        {% endblock content %}
